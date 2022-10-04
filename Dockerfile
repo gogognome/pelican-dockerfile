@@ -1,7 +1,7 @@
-FROM python:2
-MAINTAINER Matthew Jackowski
+FROM python:3
+MAINTAINER Sander Kooijmans
 
-ENV REFRESHED_AT 2014-11-29
+ENV REFRESHED_AT 2022-10-04
 
 ENV SRV_DIR=//srv
 ENV WORKING_DIR=//srv/pelican
@@ -16,4 +16,4 @@ RUN pip install -r requirements.txt
 RUN chmod +x $SRV_DIR/develop_server.sh
 
 EXPOSE $PORT
-CMD $SRV_DIR/develop_server.sh restart $PORT
+ENTRYPOINT $SRV_DIR/develop_server.sh $0 $@
